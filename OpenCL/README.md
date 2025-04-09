@@ -8,4 +8,4 @@ cmake --build build
 build/opencl_daxpy
 ```
 
-the target device, `cpu` or `gpu`, can be switched using the `EXAMPLE_OPENCL_OFFLOAD_DEVICE_TYPE` option. 
+The target device, `cpu` or `gpu`, can be switched using the `EXAMPLE_OPENCL_OFFLOAD_DEVICE_TYPE` option. 
