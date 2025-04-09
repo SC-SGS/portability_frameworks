@@ -1,4 +1,4 @@
-# CUDA
+# CUDA - Compute Unified Device Architecture
 
 An DAXPY example using NVIDIA's CUDA programming language.
 
