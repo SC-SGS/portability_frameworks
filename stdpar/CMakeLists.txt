@@ -39,7 +39,7 @@ elseif (EXAMPLE_STDPAR_IMPLEMENTATION STREQUAL "nvhpc")
     include(CheckLanguage)
     check_language(CUDA)
     enable_language(CUDA)
-    find_package(CUDAToolkit)
+    find_package(CUDAToolkit REQUIRED)
 
     if (EXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE STREQUAL "cpu")
         target_compile_options(stdpar_daxpy PUBLIC -stdpar=multicore)
