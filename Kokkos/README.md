@@ -9,4 +9,5 @@ cmake --build build
 build/kokkos_daxpy
 ```
 
+The host execution space can be selected using `-DEXAMPLE_USE_HOST_EXECUTION_SPACE=ON`.
 For HIP support, additionally set `-DCMAKE_CXX_COMPILER=hipcc`.

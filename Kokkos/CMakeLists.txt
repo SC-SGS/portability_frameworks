@@ -21,3 +21,11 @@ if (Kokkos_ENABLE_SYCL)
     target_compile_options(kokkos_daxpy PRIVATE -sycl-std=2020 -fsycl)
     target_link_options(kokkos_daxpy PRIVATE -fsycl)
 endif ()
+
+# set the execution space
+set(EXAMPLE_USE_HOST_EXECUTION_SPACE OFF CACHE STRING "Set to ON of the host execution space should be used.")
+
+# add compile definition
+if (EXAMPLE_USE_HOST_EXECUTION_SPACE)
+    target_compile_definitions(kokkos_daxpy PUBLIC EXAMPLE_USE_HOST_EXECUTION_SPACE)
+endif ()
