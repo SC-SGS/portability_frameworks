@@ -8,3 +8,5 @@ cmake -B build .
 cmake --build build
 build/kokkos_daxpy
 ```
+
+For HIP support, additionally set `-DCMAKE_CXX_COMPILER=hipcc`.
