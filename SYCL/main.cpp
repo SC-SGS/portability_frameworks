@@ -21,6 +21,7 @@ int main() {
 #else
     sycl::queue q{ sycl::cpu_selector_v, { sycl::property::queue::in_order{} } };
 #endif
+    std::cout << q.get_device().get_info<sycl::info::device::name>() << std::endl;
 
     // allocate memory on the device
     double *d_X = sycl::malloc_device<double>(N, q);
