@@ -17,7 +17,7 @@ else ()
     # assume we are targeting AMD hardware
     set(EXAMPLE_HIP_RUNTIME "HIP" CACHE STRING "Target AMD GPUs via HIP." FORCE)
 endif ()
-message(STATIS "Using ${EXAMPLE_HIP_RUNTIME} as HIP runtime.")
+message(STATUS "Using ${EXAMPLE_HIP_RUNTIME} as HIP runtime.")
 
 # find HIP
 include(CheckLanguage)
