@@ -30,7 +30,7 @@ elseif (EXAMPLE_SYCL_IMPLEMENTATION STREQUAL "acpp")
     message(STATUS "Using AdaptiveCpp as SYCL compiler.")
     add_sycl_to_target(TARGET sycl_daxpy SOURCES main.cpp)
 else ()
-    message(FATAL_ERROR "Unrecognized SYCL implementation: \"${EXAMPLE_SYCL_IMPLEMENTATION}\"")
+    message(FATAL_ERROR "Unrecognized SYCL implementation: \"${EXAMPLE_SYCL_IMPLEMENTATION}\". Please set EXAMPLE_SYCL_IMPLEMENTATION.")
 endif ()
 
 # set the offload device (CPU or GPU)
