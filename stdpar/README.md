@@ -33,7 +33,7 @@ The target device, `cpu` or `gpu`, can be switched using the `EXAMPLE_STDPAR_OFF
 To use Intel's DPC++/icpx as stdpar compiler, specify `-DEXAMPLE_STDPAR_IMPLEMENTATION="icpx"`.
 
 ```bash
-cmake -DCMAKE_CXX_COPMILER=icpx -DEXAMPLE_STDPAR_IMPLEMENTATION="icpx" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
+cmake -DCMAKE_CXX_COMPILER=icpx -DEXAMPLE_STDPAR_IMPLEMENTATION="icpx" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
 cmake --build build
 build/stdpar_daxpy
 ```
@@ -47,7 +47,7 @@ The default device can be changed using the `ONEAPI_DEVICE_SELECTOR` environment
 To use AdaptiveCpp as stdpar compiler, specify `-DEXAMPLE_SYCL_IMPLEMENTATION="acpp"`.
 
 ```bash
-cmake -DCMAKE_CXX_COPMILER=acpp -DEXAMPLE_SYCL_IMPLEMENTATION="acpp" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
+cmake -DCMAKE_CXX_COMPILER=acpp -DEXAMPLE_SYCL_IMPLEMENTATION="acpp" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
 cmake --build build
 build/stdpar_daxpy
 ```
