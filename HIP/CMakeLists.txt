@@ -39,3 +39,6 @@ target_compile_features(hip_daxpy PUBLIC cxx_std_17)
 target_link_libraries(hip_daxpy PUBLIC hip::device hip::host)
 set_source_files_properties(main.hip PROPERTIES LANGUAGE ${EXAMPLE_HIP_RUNTIME})
 set_target_properties(hip_daxpy PROPERTIES LINKER_LANGUAGE ${EXAMPLE_HIP_RUNTIME})
+
+# disable [[nodiscard]] compiler warning (error codes are ignored for the examples)
+target_compile_options(hip_daxpy PRIVATE -Wno-unused-result)
