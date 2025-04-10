@@ -59,8 +59,10 @@ elseif (EXAMPLE_STDPAR_IMPLEMENTATION STREQUAL "icpx")
 
     if (EXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE STREQUAL "cpu")
         target_compile_options(stdpar_daxpy PUBLIC -fsycl-pstl-offload=cpu)
+        target_link_options(stdpar_daxpy PUBLIC -fsycl-pstl-offload=cpu)
     else ()
         target_compile_options(stdpar_daxpy PUBLIC -fsycl-pstl-offload=gpu)
+        target_link_options(stdpar_daxpy PUBLIC -fsycl-pstl-offload=gpu)
     endif ()
 
     # must be linked against oneDPL
