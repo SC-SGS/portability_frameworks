@@ -26,6 +26,8 @@ int main() {
         }
         const double alpha = 0.5;
 
+        std::cout << exec::name() << std::endl;
+
         // allocate memory on the device
         Kokkos::View<double *, exec> d_X("X", N);
         Kokkos::View<double *, exec> d_Y("Y", N);
