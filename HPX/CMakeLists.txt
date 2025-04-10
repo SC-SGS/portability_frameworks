@@ -14,4 +14,4 @@ add_executable(hpx_daxpy main.cpp)
 target_compile_features(hpx_daxpy PUBLIC cxx_std_17)
 
 # link against necessary libraries
-target_link_libraries(hpx_daxpy PUBLIC HPX::hpx)
+target_link_libraries(hpx_daxpy PUBLIC HPX::hpx HPX::wrap_main)

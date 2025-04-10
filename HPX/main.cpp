@@ -1,8 +1,10 @@
+#include <hpx/hpx_main.hpp>
 #include "hpx/execution.hpp"
-#include "hpx/parallel/segmented_algorithms/for_each.hpp"
+#include "hpx/algorithm.hpp"
 
 #include <iostream>
 #include <vector>
+#include <numeric>
 
 int main() {
     const int N = 1024;
