@@ -41,6 +41,8 @@ build/stdpar_daxpy
 The target device, `cpu` or `gpu`, can be switched using the `EXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE` option.
 Requires an Intel oneDPL installation.
 The default device can be changed using the `ONEAPI_DEVICE_SELECTOR` environment variable.
+Note that the respective `-fsycl-targets` flag depends on the targeted GPU and must be separately set via
+`CMAKE_CXX_FLAGS`.
 
 ## AdaptiveCpp
 
