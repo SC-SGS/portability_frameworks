@@ -85,8 +85,19 @@ elseif (EXAMPLE_STDPAR_IMPLEMENTATION STREQUAL "acpp")
     target_link_libraries(stdpar_daxpy PUBLIC TBB::tbb)
 elseif (EXAMPLE_STDPAR_IMPLEMENTATION STREQUAL "rocstdpar")
     # AMD rocstdpar as stdpar implementation
-    message(STATUS "Using ${EXAMPLE_STDPAR_IMPLEMENTATION} as stdpar implementation.")
-    message(FATAL_ERROR "Not implemented yet.")
+    if (NOT DEFINED ENV{EXAMPLE_HIPSTDPAR_PATH})
+        message(FATAL_ERROR "The EXAMPLE_HIPSTDPAR_PATH environment variable must be available in order for rocstdpar to work!")
+    endif ()
+    message(STATUS "Using ${EXAMPLE_STDPAR_IMPLEMENTATION} as stdpar implementation ($ENV{EXAMPLE_HIPSTDPAR_PATH}).")
+
+    # must be linked against HIP
+    include(CheckLanguage)
+    check_language(HIP)
+    enable_language(HIP)
+    find_package(HIP REQUIRED)
+
+    # set compilation flags
+    target_compile_options(stdpar_daxpy PUBLIC -hipstdpar --hipstdpar-path="$ENV{EXAMPLE_HIPSTDPAR_PATH}")
 else ()
     message(FATAL_ERROR "Unrecognized stdpar implementation: \"${EXAMPLE_STDPAR_IMPLEMENTATION}\"")
 endif ()
