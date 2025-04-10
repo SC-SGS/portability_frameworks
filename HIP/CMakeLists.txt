@@ -23,7 +23,7 @@ message(STATUS "Using ${EXAMPLE_HIP_RUNTIME} as HIP runtime.")
 include(CheckLanguage)
 check_language(${EXAMPLE_HIP_RUNTIME})
 enable_language(${EXAMPLE_HIP_RUNTIME})
-find_package(HIP)
+find_package(HIP REQUIRED)
 
 # set necessary flags
 set(CMAKE_HIP_STANDARD 17)

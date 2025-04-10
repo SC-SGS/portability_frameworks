@@ -8,7 +8,7 @@ project(CUDAExample
 include(CheckLanguage)
 check_language(CUDA)
 enable_language(CUDA)
-find_package(CUDAToolkit)
+find_package(CUDAToolkit REQUIRED)
 
 # set necessary flags
 set(CMAKE_CUDA_STANDARD 17)
