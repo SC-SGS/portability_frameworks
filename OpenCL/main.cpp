@@ -1,6 +1,8 @@
 #include "CL/cl.h"
 
+#include <cstddef>
 #include <iostream>
+#include <string>
 #include <vector>
 
 const char *kernel_source = R"KS(
@@ -47,6 +49,13 @@ int main() {
         std::cerr << "Couldn't find the requested device type." << std::endl;
         return 1;
     }
+
+    // get device name
+    std::size_t name_length{};
+    clGetDeviceInfo(device, CL_DEVICE_NAME, 0, nullptr, &name_length);
+    std::string device_name(name_length - 1, '\0');
+    clGetDeviceInfo(device, CL_DEVICE_NAME, name_length, device_name.data(), nullptr);
+    std::cout << device_name << std::endl;
 
     cl_context context = clCreateContext(nullptr, 1, &device, nullptr, nullptr, nullptr);
     cl_command_queue queue = clCreateCommandQueueWithProperties(context, device, 0, nullptr);
