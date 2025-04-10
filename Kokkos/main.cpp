@@ -37,6 +37,7 @@ int main() {
         for (int i = 0; i < 10; ++i) {
             std::cout << Y[i] << ' ';
         }
+        std::cout << std::endl;
     }
     Kokkos::finalize();
     return 0;
