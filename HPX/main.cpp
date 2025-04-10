@@ -1,10 +1,10 @@
-#include <hpx/hpx_main.hpp>
-#include "hpx/execution.hpp"
 #include "hpx/algorithm.hpp"
+#include "hpx/execution.hpp"
+#include "hpx/hpx_main.hpp"
 
 #include <iostream>
-#include <vector>
 #include <numeric>
+#include <vector>
 
 int main() {
     const int N = 1024;
