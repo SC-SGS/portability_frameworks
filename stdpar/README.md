@@ -8,7 +8,7 @@ The two SYCL implementations DPCPP/icpx and AdaptiveCpp are supported.
 To use GCC as stdpar compiler, specify `-DEXAMPLE_STDPAR_IMPLEMENTATION="gcc"`.
 
 ```bash
-cmake -DEXAMPLE_STDPAR_IMPLEMENTATION="gcc" -DEXAMPLE_SYCL_OFFLOAD_DEVICE_TYPE="cpu" -B build .
+cmake -DEXAMPLE_STDPAR_IMPLEMENTATION="gcc" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="cpu" -B build .
 cmake --build build
 build/stdpar_daxpy
 ```
@@ -21,7 +21,7 @@ Requires a TBB installation.
 To use NVIDIA's nvhpc as stdpar compiler, specify `-DEXAMPLE_STDPAR_IMPLEMENTATION="nvhpc"`.
 
 ```bash
-cmake -DCMAKE_CXX_COMPILER=nvhpc -DEXAMPLE_STDPAR_IMPLEMENTATION="nvhpc" -DEXAMPLE_SYCL_OFFLOAD_DEVICE_TYPE="gpu" -B build .
+cmake -DCMAKE_CXX_COMPILER=nvhpc -DEXAMPLE_STDPAR_IMPLEMENTATION="nvhpc" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
 cmake --build build
 build/stdpar_daxpy
 ```
@@ -33,7 +33,7 @@ The target device, `cpu` or `gpu`, can be switched using the `EXAMPLE_STDPAR_OFF
 To use Intel's DPC++/icpx as stdpar compiler, specify `-DEXAMPLE_STDPAR_IMPLEMENTATION="icpx"`.
 
 ```bash
-cmake -DCMAKE_CXX_COPMILER=icpx -DEXAMPLE_STDPAR_IMPLEMENTATION="icpx" -DEXAMPLE_SYCL_OFFLOAD_DEVICE_TYPE="gpu" -B build .
+cmake -DCMAKE_CXX_COPMILER=icpx -DEXAMPLE_STDPAR_IMPLEMENTATION="icpx" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
 cmake --build build
 build/stdpar_daxpy
 ```
@@ -47,9 +47,9 @@ The default device can be changed using the `ONEAPI_DEVICE_SELECTOR` environment
 To use AdaptiveCpp as stdpar compiler, specify `-DEXAMPLE_SYCL_IMPLEMENTATION="acpp"`.
 
 ```bash
-cmake -DCMAKE_CXX_COPMILER=acpp -DEXAMPLE_SYCL_IMPLEMENTATION="acpp" -DEXAMPLE_SYCL_OFFLOAD_DEVICE_TYPE="gpu" -B build .
+cmake -DCMAKE_CXX_COPMILER=acpp -DEXAMPLE_SYCL_IMPLEMENTATION="acpp" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
 cmake --build build
-build/sycl_daxpy
+build/stdpar_daxpy
 ```
 
 The target device, `cpu` or `gpu`, can be switched using the `EXAMPLE_SYCL_OFFLOAD_DEVICE_TYPE` option.
