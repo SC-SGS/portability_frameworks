@@ -70,10 +70,10 @@ The default device can be changed using the `ACPP_VISIBILITY_MASK=` environment 
 To use rocstdpar as stdpar compiler, specify `-DEXAMPLE_SYCL_IMPLEMENTATION="rocstdpar"`.
 
 ```bash
-cmake -DEXAMPLE_SYCL_IMPLEMENTATION="rocstdpar" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
+cmake -DCMAKE_CXX_COMPILER=clang++ -DEXAMPLE_SYCL_IMPLEMENTATION="rocstdpar" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
 cmake --build build
 build/stdpar_daxpy
 ```
 
 The target device must be `gpu`.
-The rocstdpar compiler path **must** be set using the `EXAMPLE_HIPSTDPAR_PATH` environment variable. 
+Upstream LLVM 18 can be used as rocstdpar compiler. 
