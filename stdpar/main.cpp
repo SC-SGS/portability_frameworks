@@ -1,5 +1,7 @@
+#include <algorithm>
 #include <execution>
 #include <iostream>
+#include <numeric>
 #include <vector>
 
 int main() {
