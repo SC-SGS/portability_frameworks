@@ -21,7 +21,7 @@ Requires a TBB installation.
 To use NVIDIA's nvhpc as stdpar compiler, specify `-DEXAMPLE_STDPAR_IMPLEMENTATION="nvhpc"`.
 
 ```bash
-cmake -DCMAKE_CXX_COMPILER=nvhpc -DEXAMPLE_STDPAR_IMPLEMENTATION="nvhpc" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
+cmake -DCMAKE_CXX_COMPILER=nvc++ -DEXAMPLE_STDPAR_IMPLEMENTATION="nvhpc" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
 cmake --build build
 build/stdpar_daxpy
 ```
