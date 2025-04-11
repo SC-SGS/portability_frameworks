@@ -19,10 +19,10 @@ Note that the respective `-fsycl-targets` flag depends on the targeted GPU and m
 
 The target flags are:
 
-- CPUs: `-fsycl-targets=spir64_x86_64 -Xsycl-target-backend=spir64_x86_64 -march=native`
-- NVIDIA GPUs: `-fsycl-targets=nvptx64-nvidia-cuda -Xsycl-target-backend=nvptx64-nvidia-cuda --offload-arch=80`
-- AMD GPUs: `-fsycl-targets=amdgcn-amd-amdhsa -Xsycl-target-backend=amdgcn-amd-amdhsa --offload-arch=gfx90a`
-- Intel GPUs: `-fsycl-targets=spir64_gen -Xsycl-target-backend=spir64_gen -device 0xe20b`
+- CPUs: `-fsycl -fsycl-targets=spir64_x86_64 -Xsycl-target-backend=spir64_x86_64 -march=avx512`
+- NVIDIA GPUs: `-fsycl -fsycl-targets=nvptx64-nvidia-cuda -Xsycl-target-backend=nvptx64-nvidia-cuda --offload-arch=sm_80`
+- AMD GPUs: `-fsycl -fsycl-targets=amdgcn-amd-amdhsa -Xsycl-target-backend=amdgcn-amd-amdhsa --offload-arch=gfx90a`
+- Intel GPUs: `-fsycl -fsycl-targets=spir64_gen -Xsycl-target-backend=spir64_gen -device 0xe20b`
 
 Note that the offload architectures have to be replaced with the respective architecture of the target device. 
 
