@@ -3,7 +3,7 @@
 An DAXPY example using AMD's HIP programming language.
 
 ```bash
-cmake -DCMAKE_HIP_ARCHITECTURES="gfx906" -B build .
+cmake -DCMAKE_HIP_ARCHITECTURES="gfx90a" -B build .
 cmake --build build
 build/hip_daxpy
 ```
@@ -15,7 +15,7 @@ To target NVIDIA GPUs with HIP, use:
 
 ```bash
 export HIP_PLATFORM="nvidia"
-cmake -DCMAKE_CUDA_ARCHITECTURES="86" -B build .
+cmake -DCMAKE_CUDA_ARCHITECTURES="80" -B build .
 cmake --build build
 build/hip_daxpy
 ```

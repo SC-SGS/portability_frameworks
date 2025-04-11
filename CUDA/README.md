@@ -3,7 +3,7 @@
 An DAXPY example using NVIDIA's CUDA programming language.
 
 ```bash
-cmake -DCMAKE_CUDA_ARCHITECTURES="86" -B build .
+cmake -DCMAKE_CUDA_ARCHITECTURES="80" -B build .
 cmake --build build
 build/cuda_daxpy
 ```
