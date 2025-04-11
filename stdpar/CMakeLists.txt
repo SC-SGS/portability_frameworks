@@ -89,6 +89,9 @@ elseif (EXAMPLE_STDPAR_IMPLEMENTATION STREQUAL "acpp")
     find_package(TBB REQUIRED)
     target_link_libraries(stdpar_daxpy PUBLIC TBB::tbb)
 elseif (EXAMPLE_STDPAR_IMPLEMENTATION STREQUAL "rocstdpar")
+    if (NOT EXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE STREQUAL "gpu")
+        message(FATAL_ERROR "rocstdpar only supports gpu as offload target.")
+    endif ()
     # AMD rocstdpar as stdpar implementation
     message(STATUS "Using ${EXAMPLE_STDPAR_IMPLEMENTATION} as stdpar implementation.")
 
