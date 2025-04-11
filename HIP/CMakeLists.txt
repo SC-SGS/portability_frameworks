@@ -42,3 +42,6 @@ set_target_properties(hip_daxpy PROPERTIES LINKER_LANGUAGE ${EXAMPLE_HIP_RUNTIME
 
 # disable [[nodiscard]] compiler warning (error codes are ignored for the examples)
 target_compile_options(hip_daxpy PRIVATE -Wno-unused-result)
+if ($ENV{HIP_PLATFORM} MATCHES "nvidia")
+    target_compile_options(hip_daxpy PRIVATE -Xcudafe --diag_suppress=2810)
+endif ()
