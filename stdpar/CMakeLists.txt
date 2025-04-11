@@ -44,6 +44,7 @@ elseif (EXAMPLE_STDPAR_IMPLEMENTATION STREQUAL "nvhpc")
 
     if (EXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE STREQUAL "cpu")
         target_compile_options(stdpar_daxpy PUBLIC -stdpar=multicore -tp=native)
+        target_link_options(stdpar_daxpy PUBLIC -stdpar=multicore -tp=native)
     else ()
         target_compile_options(stdpar_daxpy PUBLIC -stdpar=gpu)
         target_link_options(stdpar_daxpy PUBLIC -stdpar=gpu)
