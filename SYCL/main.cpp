@@ -17,9 +17,9 @@ int main() {
 
     // create a SYCL queue specifying WHERE the code should run
 #if defined(EXAMPLE_SYCL_GPU_DEVICE)
-    sycl::queue q{ sycl::gpu_selector_v };
+    sycl::queue q{ sycl::gpu_selector_v, sycl::property::queue::in_order{} };
 #else
-    sycl::queue q{ sycl::cpu_selector_v };
+    sycl::queue q{ sycl::cpu_selector_v, sycl::property::queue::in_order{} };
 #endif
     std::cout << q.get_device().get_info<sycl::info::device::name>() << std::endl;
 
@@ -27,18 +27,18 @@ int main() {
     double *d_X = sycl::malloc_device<double>(N, q);
     double *d_Y = sycl::malloc_device<double>(N, q);
     // copy data to the device
-    const sycl::event e1 = q.copy(X.data(), d_X, N);
-    const sycl::event e2 = q.copy(Y.data(), d_Y, N);
+    q.copy(X.data(), d_X, N);
+    q.copy(Y.data(), d_Y, N);
 
     // the SYCL compute kernel
-    const sycl::event e3 = q.parallel_for(sycl::range<1>{ N }, { e1, e2 }, [=](const sycl::id<1> idx) {
+    q.parallel_for(sycl::range<1>{ N }, [=](const sycl::id<1> idx) {
         d_Y[idx] = alpha * d_X[idx] + d_Y[idx];
     });
 
     // copy data to the host
-    sycl::event e4 = q.copy(d_Y, Y.data(), N, e3);
+    q.copy(d_Y, Y.data(), N);
     // free the resources
-    e4.wait();
+    q.wait();  // shouldn't be necessary but otherwise fails with AdaptiveCpp v24.10.0
     sycl::free(d_X, q);
     sycl::free(d_Y, q);
 
