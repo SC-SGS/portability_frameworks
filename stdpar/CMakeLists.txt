@@ -107,3 +107,5 @@ elseif (EXAMPLE_STDPAR_IMPLEMENTATION STREQUAL "rocstdpar")
 else ()
     message(FATAL_ERROR "Unrecognized stdpar implementation: \"${EXAMPLE_STDPAR_IMPLEMENTATION}\"")
 endif ()
+
+target_compile_definitions(stdpar_daxpy PUBLIC EXAMPLE_STDPAR_IMPLEMENTATION="${EXAMPLE_STDPAR_IMPLEMENTATION}")

@@ -16,6 +16,8 @@ int main() {
     }
     const double alpha = 0.5;
 
+    std::cout << EXAMPLE_STDPAR_IMPLEMENTATION << std::endl;
+
     // create the indices used in the for_each loop
     std::vector<int> indices(N);
     std::iota(indices.begin(), indices.end(), 0);
