@@ -30,7 +30,7 @@ if (EXAMPLE_STDPAR_IMPLEMENTATION STREQUAL "gcc")
     target_link_libraries(stdpar_daxpy PUBLIC TBB::tbb)
 elseif (EXAMPLE_STDPAR_IMPLEMENTATION STREQUAL "nvhpc")
     if (NOT ${CMAKE_CXX_COMPILER_ID} STREQUAL "NVHPC")
-        message(FATAL_ERROR "Please set CMAKE_CXX_COMPILER to nvhpc in order to use it as stdpar implementation.")
+        message(FATAL_ERROR "Please set CMAKE_CXX_COMPILER to nvc++ in order to use it as stdpar implementation.")
     endif ()
     # nvhpc as stdpar implementation
     message(STATUS "Using ${EXAMPLE_STDPAR_IMPLEMENTATION} as stdpar implementation.")
