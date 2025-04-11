@@ -1,7 +1,6 @@
 # stdpar
 
 An DAXPY example using the C++ standard parallelism.
-The two SYCL implementations DPCPP/icpx and AdaptiveCpp are supported.
 
 ## GCC
 
