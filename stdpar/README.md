@@ -52,24 +52,23 @@ The target flags are:
 
 ## AdaptiveCpp
 
-To use AdaptiveCpp as stdpar compiler, specify `-DEXAMPLE_SYCL_IMPLEMENTATION="acpp"`.
+To use AdaptiveCpp as stdpar compiler, specify `-DEXAMPLE_STDPAR_IMPLEMENTATION="acpp"`.
 
 ```bash
-cmake -DCMAKE_CXX_COMPILER=acpp -DEXAMPLE_SYCL_IMPLEMENTATION="acpp" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
+cmake -DCMAKE_CXX_COMPILER=acpp -DEXAMPLE_STDPAR_IMPLEMENTATION="acpp" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
 cmake --build build
 build/stdpar_daxpy
 ```
 
-The target device, `cpu` or `gpu`, can be switched using the `EXAMPLE_SYCL_OFFLOAD_DEVICE_TYPE` option.
 Requires a TBB installation.
 The default device can be changed using the `ACPP_VISIBILITY_MASK=` environment variable.
 
 ## rocstdpar
 
-To use rocstdpar as stdpar compiler, specify `-DEXAMPLE_SYCL_IMPLEMENTATION="rocstdpar"`.
+To use rocstdpar as stdpar compiler, specify `-DEXAMPLE_STDPAR_IMPLEMENTATION="rocstdpar"`.
 
 ```bash
-cmake -DCMAKE_CXX_COMPILER=clang++ -DEXAMPLE_SYCL_IMPLEMENTATION="rocstdpar" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
+cmake -DCMAKE_CXX_COMPILER=clang++ -DEXAMPLE_STDPAR_IMPLEMENTATION="rocstdpar" -DEXAMPLE_STDPAR_OFFLOAD_DEVICE_TYPE="gpu" -B build .
 cmake --build build
 build/stdpar_daxpy
 ```
