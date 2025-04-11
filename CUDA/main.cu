@@ -21,6 +21,11 @@ int main() {
     }
     const double alpha = 0.5;
 
+    // output the device name
+    cudaDeviceProp prop;
+    cudaGetDeviceProperties(&prop, 0);
+    std::cout << prop.name << std::endl;
+
     double *d_X, *d_Y;
     // allocate memory on the device
     cudaMalloc(&d_X, N * sizeof(double));

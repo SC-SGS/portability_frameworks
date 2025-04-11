@@ -24,6 +24,11 @@ int main() {
     }
     const double alpha = 0.5;
 
+    // output the device name
+    hipDeviceProp_t prop;
+    hipGetDeviceProperties(&prop, 0);
+    std::cout << prop.name << std::endl;
+
     double *d_X, *d_Y;
     // allocate memory on the device
     hipMalloc(&d_X, N * sizeof(double));
