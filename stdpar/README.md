@@ -75,3 +75,4 @@ build/stdpar_daxpy
 
 The target device must be `gpu`.
 Upstream LLVM 18 can be used as rocstdpar compiler. 
+In some cases, `--hipstdpar-interpose-alloc` must be additionally set. 
